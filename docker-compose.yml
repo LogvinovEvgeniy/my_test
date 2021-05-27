@@ -1,0 +1,41 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: jmandjh#45svH
+      MYSQL_DATABASE: redmine
+      MYSQL_USER: redmine
+      MYSQL_PASSWORD: DO2GY6Re8
+    volumes:
+      - redmine:/var/lib/mysql
+
+  nginx:
+    image: nginx-redmine
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+      - redmine
+    restart: always
+
+  redmine:
+    image: redmine-local
+    restart: always
+    environment:
+      REDMINE_DB_MYSQL: db
+      REDMINE_DB_PASSWORD: DO2GY6Re8
+      REDMINE_DB_DATABASE: redmine
+      REDMINE_DB_USERNAME: redmine
+      MYSQL_HOST: db
+    depends_on:
+      - db
+
+volumes:
+  redmine:
+
+
+

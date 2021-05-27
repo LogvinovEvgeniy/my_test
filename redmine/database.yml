@@ -1,0 +1,6 @@
+production:
+  adapter: "mysql2"
+  database: REDMINE_DB_DATABASE
+  host: MYSQL_HOST
+  username: REDMINE_DB_USERNAME
+  password: REDMINE_DB_PASSWORD
