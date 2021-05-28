@@ -1,0 +1,26 @@
+language: ruby 
+
+services:  # 
+  - docker
+
+install: 
+  - npm ci
+
+before_install: 
+  # - npm install 
+  - npm run dev &
+script: 
+  # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  # - docker bild -t LogvinovEvgeniy/travis-ci:latest .
+  # - docker push LogvinovEvgeniy/travis-ci:latest
+  # - npm install 
+  # - docker build -t bask.
+  - npm run test 
+
+deploy: 
+  provider:  script 
+  script: bash.sh
+  on:
+    branch: master
+  
+
