@@ -25,4 +25,3 @@ COPY redmine/start.sh start.sh
 RUN chmod +x start.sh
 
 ENTRYPOINT ["sh", "-c" ," . /opt/redmine/start.sh"]
-
